@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  team_selection:
+    image: gui-app:latest
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ./app/Output.xlsx:/app/Output.xlsx
+      - ./app/output.txt:/app/output.txt
+    environment:
+      - DISPLAY=${DISPLAY}
+    command: ["/start.sh"]
